@@ -5,13 +5,8 @@ public class Hallgato extends Targy{
     private int targyakSzama;
 
 
-    public Hallgato(String nev, int targyakSzama, int kreditSzam, String idoPont, String targyNev) {
-        super(targyNev, kreditSzam, idoPont);
+    public Hallgato(String nev, int targyakSzama) {
         this.nev=nev;
-        this.targyakSzama=targyakSzama;
-        this.targyNev = targyNev;
-        this.kreditSzam = kreditSzam;
-        this.idoPont = idoPont;
     }
 
     public String getNev() {
@@ -30,19 +25,11 @@ public class Hallgato extends Targy{
         this.targyakSzama = targyakSzama;
     }
 
-
-    public Hallgato(String nev) {
-        this.nev = nev;
-    }
-
     @Override
     public String toString() {
         return "Hallgato{" +
                 "nev='" + nev + '\'' +
                 ", targyakSzama=" + targyakSzama +'\'' +
-                ",  targyNev='" + targyNev + '\'' +
-                ", kreditSzam=" + kreditSzam + '\'' +
-                ", idoPont='" + idoPont + '\'' +
                 '}';
     }
 }
