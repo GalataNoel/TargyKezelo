@@ -39,6 +39,7 @@ public class Felvetel {
             hallgato1 = new Hallgato("fe",3);
             System.out.println(hallgato1);
 
+            //TODO: a hallgató által felvett tárgyakat is kiírni (kell Targy targy= new Targy(); talán)
             System.out.println("Fel akarsz venni még egy tárgyat? (igen/nem)");
             BufferedReader reader5 = new BufferedReader(new InputStreamReader(System.in));
             String felvetel2 = reader5.readLine();

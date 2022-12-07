@@ -26,7 +26,7 @@ public class Main extends Felvetel{
         String targyIdo = reader3.readLine();*/
         felvetel34.targyHozzaadas();
 
-
+        //TODO: unit és performance teszteket írni, megnézni a ci/cd pipeline-t
         felvetel34.targyFelvetel(targyNev,targyKredit,targyIdo);
 
 
