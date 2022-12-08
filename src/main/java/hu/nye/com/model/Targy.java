@@ -1,5 +1,8 @@
 package hu.nye.com.model;
 
+/**
+ * .
+ */
 public class Targy {
     public String targyNev;
     public int kreditSzam;

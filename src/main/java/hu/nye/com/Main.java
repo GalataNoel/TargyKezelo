@@ -1,44 +1,36 @@
 package hu.nye.com;
 
-import hu.nye.com.model.Hallgato;
 import hu.nye.com.model.Targy;
 import hu.nye.com.service.Felvetel;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.sql.*;
 
-public class Main extends Felvetel{
-    public static void main(String[] args) throws IOException {
-        /**
-        System.out.println("Add meg a tárgy adatait!");
-        System.out.println("");
-        System.out.println("Mi legyen a tárgy neve?");
-        BufferedReader reader1 = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Mennyi legyen a tárgy kreditszáma??");
-        BufferedReader reader2 = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Mikor lesz a tárgy? (nap:óra:perc)");
-        BufferedReader reader3 = new BufferedReader(new InputStreamReader(System.in));
-        */
-        Felvetel felvetel34 = new Felvetel();
-        /**String targyNev = reader1.readLine();
-        int targyKredit = Integer.parseInt(reader2.readLine());
-        String targyIdo = reader3.readLine();*/
-        felvetel34.targyHozzaadas();
+/**
+ * .
+ */
+public class Main extends Felvetel {
+    public static void main(String[] args) throws IOException, SQLException {
+        Connection connection = DriverManager.getConnection("jdbc:h2:tcp://localhost/./jdbc-test","sa","password");
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("Select * FROM USERS");
 
-        //TODO: unit és performance teszteket írni, megnézni a ci/cd pipeline-t
-        felvetel34.targyFelvetel(targyNev,targyKredit,targyIdo);
+        while(resultSet.next()){
+            String nev = resultSet.getString("targyNev");
+            String kredit = resultSet.getString("targyKredit");
+            String ido = resultSet.getString("targyIdo");
 
+            Targy targy1 = new Targy(targyNev,targyKredit,targyIdo);
+            System.out.println(targy1);
+        }
+        resultSet.close();
+        statement.close();
+        connection.close();
 
+        Felvetel felvetel = new Felvetel();
+        felvetel.targyHozzaadas();
 
-        /**System.out.println("Fel akarod venni a " +targyNev+"-t? (igen/nem");
-        BufferedReader reader4 = new BufferedReader(new InputStreamReader(System.in));
-        String felvetel = reader4.readLine();
-        if(felvetel.equalsIgnoreCase("igen")){
-            Hallgato hallgato1 = new Hallgato("fe",3,targyKredit,targyIdo,targyNev);
-            System.out.println(hallgato1);
-        }else if(felvetel.equalsIgnoreCase("")){
-            targyHozzaadas();
-        }*/
+        //TODO: unit és performance teszteket írni, megnézni a ci/cd pipeline-t, adatbázist csinálni hozzá
+        felvetel.targyFelvetel();
     }
 }

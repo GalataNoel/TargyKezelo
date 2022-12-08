@@ -1,12 +1,17 @@
 package hu.nye.com.model;
 
-public class Hallgato extends Targy{
+import java.util.ArrayList;
+
+/**
+ * .
+ */
+public class Hallgato extends Targy {
     private String nev;
-    private int targyakSzama;
+    private ArrayList<Targy> targyak= new ArrayList<>();
 
-
-    public Hallgato(String nev, int targyakSzama) {
-        this.nev=nev;
+    public Hallgato(String nev, ArrayList<Targy> targyak) {
+        this.nev = nev;
+        this.targyak = targyak;
     }
 
     public String getNev() {
@@ -17,19 +22,19 @@ public class Hallgato extends Targy{
         this.nev = nev;
     }
 
-    public int getTargyakSzama() {
-        return targyakSzama;
+    public ArrayList<Targy> getTargyak() {
+        return targyak;
     }
 
-    public void setTargyakSzama(int targyakSzama) {
-        this.targyakSzama = targyakSzama;
+    public void setTargyak(ArrayList<Targy> targyak) {
+        this.targyak = targyak;
     }
 
     @Override
     public String toString() {
         return "Hallgato{" +
                 "nev='" + nev + '\'' +
-                ", targyakSzama=" + targyakSzama +'\'' +
+                ", targyak=" + targyak +
                 '}';
     }
 }
