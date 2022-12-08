@@ -14,7 +14,6 @@ public class Main extends Felvetel {
         Felvetel felvetel = new Felvetel();
         felvetel.targyHozzaadas();
 
-        //TODO: unit és performance teszteket írni, megnézni a ci/cd pipeline-t, adatbázist csinálni hozzá
         felvetel.targyFelvetel();
     }
 }
